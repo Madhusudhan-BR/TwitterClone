@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B1EFDCC1F28565A0023AE58 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1EFDCB1F28565A0023AE58 /* RegisterController.swift */; };
 		9B817B5D1F26F3A500384C47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B817B5C1F26F3A500384C47 /* AppDelegate.swift */; };
-		9B817B5F1F26F3A500384C47 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B817B5E1F26F3A500384C47 /* RegisterController.swift */; };
 		9B817B621F26F3A500384C47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B817B601F26F3A500384C47 /* Main.storyboard */; };
 		9B817B651F26F3A500384C47 /* TwitterClone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9B817B631F26F3A500384C47 /* TwitterClone.xcdatamodeld */; };
 		9B817B671F26F3A500384C47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B817B661F26F3A500384C47 /* Assets.xcassets */; };
@@ -36,9 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B1EFDCB1F28565A0023AE58 /* RegisterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		9B817B591F26F3A500384C47 /* TwitterClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B817B5C1F26F3A500384C47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9B817B5E1F26F3A500384C47 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		9B817B611F26F3A500384C47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9B817B641F26F3A500384C47 /* TwitterClone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TwitterClone.xcdatamodel; sourceTree = "<group>"; };
 		9B817B661F26F3A500384C47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -103,8 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				9B817B5C1F26F3A500384C47 /* AppDelegate.swift */,
-				9B817B5E1F26F3A500384C47 /* RegisterController.swift */,
 				9B817B601F26F3A500384C47 /* Main.storyboard */,
+				9B1EFDCB1F28565A0023AE58 /* RegisterController.swift */,
 				9B817B661F26F3A500384C47 /* Assets.xcassets */,
 				9B817B681F26F3A500384C47 /* LaunchScreen.storyboard */,
 				9B817B6B1F26F3A500384C47 /* Info.plist */,
@@ -270,8 +270,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B817B651F26F3A500384C47 /* TwitterClone.xcdatamodeld in Sources */,
-				9B817B5F1F26F3A500384C47 /* RegisterController.swift in Sources */,
 				9B817B5D1F26F3A500384C47 /* AppDelegate.swift in Sources */,
+				9B1EFDCC1F28565A0023AE58 /* RegisterController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,6 +524,7 @@
 				9B817B861F26F3A600384C47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9B817B871F26F3A600384C47 /* Build configuration list for PBXNativeTarget "TwitterCloneTests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +533,7 @@
 				9B817B891F26F3A600384C47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9B817B8A1F26F3A600384C47 /* Build configuration list for PBXNativeTarget "TwitterCloneUITests" */ = {
 			isa = XCConfigurationList;
@@ -540,6 +542,7 @@
 				9B817B8C1F26F3A600384C47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
