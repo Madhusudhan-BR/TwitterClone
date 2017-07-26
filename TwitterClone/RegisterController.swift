@@ -27,6 +27,42 @@ class RegisterController: UIViewController {
     }
     
     @IBAction func handleRegister(_ sender: Any) {
+        
+        if usernameField.text!.isEmpty || passwordField.text!.isEmpty || emailField.text!.isEmpty || firstnameField.text!.isEmpty || lastnameField.text!.isEmpty {
+            
+            usernameField.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSForegroundColorAttributeName: UIColor.red])
+            passwordField.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSForegroundColorAttributeName: UIColor.red])
+            emailField.attributedPlaceholder = NSAttributedString(string: "email", attributes: [NSForegroundColorAttributeName: UIColor.red])
+            firstnameField.attributedPlaceholder = NSAttributedString(string: "firstname", attributes: [NSForegroundColorAttributeName: UIColor.red])
+            lastnameField.attributedPlaceholder = NSAttributedString(string: "lastname", attributes: [NSForegroundColorAttributeName: UIColor.red])
+        }
+        else {
+        
+        let url = URL(string: "http://localhost/twitterclone/register.php")!
+        let request = NSMutableURLRequest(url: url)
+        request.httpMethod = "POST"
+            let body = "username=\(usernameField.text!.lowercased())&password=\(passwordField.text!)&email=\(emailField.text!.lowercased())&fullname=\(firstnameField.text!)%20\(lastnameField.text!)"
+        request.httpBody = body.data(using: String.Encoding.utf8)
+            URLSession.shared.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) in
+                if let error = error {
+                    print(error)
+                }
+                guard let data = data else { return }
+                print(data)
+                DispatchQueue.main.async {
+                    do {
+                        let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
+                        guard let jsonData = json else { return }
+                        print(jsonData)
+                    } catch let error {
+                        print("JSON error",error)
+                    }
+                }
+            }).resume()
+            
+            
+        
+        }
     }
     
     @IBAction func handleAlreadyHaveAccount(_ sender: Any) {
