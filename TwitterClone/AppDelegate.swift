@@ -13,13 +13,34 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var backgroundImageView = UIImageView()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        backgroundImageView.image = UIImage(named: "mainbg.jpg")
+        backgroundImageView.frame = CGRect(x: 0, y: 0, width: window!.bounds.height * 1.668, height: window!.bounds.height)
+        self.window?.addSubview(backgroundImageView)
+        moveLeft()
         return true
     }
-
+    
+    func moveLeft(){
+        UIView.animate(withDuration: 20, animations: {
+            self.backgroundImageView.frame.origin.x = -self.backgroundImageView.frame.width + self.window!.bounds.width
+        }) { (completed) in
+            self.moveRight()
+        }
+    }
+    
+    
+    func moveRight(){
+        UIView.animate(withDuration: 20, animations: {
+            self.backgroundImageView.frame.origin.x = 0
+        }) { (completed) in
+            self.moveLeft()
+        }
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
