@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9B1EFDCC1F28565A0023AE58 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1EFDCB1F28565A0023AE58 /* RegisterController.swift */; };
+		9B39E5801F319F9900CF9907 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B39E57F1F319F9900CF9907 /* LoginController.swift */; };
 		9B817B5D1F26F3A500384C47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B817B5C1F26F3A500384C47 /* AppDelegate.swift */; };
 		9B817B621F26F3A500384C47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B817B601F26F3A500384C47 /* Main.storyboard */; };
 		9B817B651F26F3A500384C47 /* TwitterClone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9B817B631F26F3A500384C47 /* TwitterClone.xcdatamodeld */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		9B1EFDCB1F28565A0023AE58 /* RegisterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
+		9B39E57F1F319F9900CF9907 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		9B817B591F26F3A500384C47 /* TwitterClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B817B5C1F26F3A500384C47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B817B611F26F3A500384C47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				9B817B5C1F26F3A500384C47 /* AppDelegate.swift */,
 				9B817B601F26F3A500384C47 /* Main.storyboard */,
 				9B1EFDCB1F28565A0023AE58 /* RegisterController.swift */,
+				9B39E57F1F319F9900CF9907 /* LoginController.swift */,
 				9B817B661F26F3A500384C47 /* Assets.xcassets */,
 				9B817B681F26F3A500384C47 /* LaunchScreen.storyboard */,
 				9B817B6B1F26F3A500384C47 /* Info.plist */,
@@ -270,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B817B651F26F3A500384C47 /* TwitterClone.xcdatamodeld in Sources */,
+				9B39E5801F319F9900CF9907 /* LoginController.swift in Sources */,
 				9B817B5D1F26F3A500384C47 /* AppDelegate.swift in Sources */,
 				9B1EFDCC1F28565A0023AE58 /* RegisterController.swift in Sources */,
 			);
