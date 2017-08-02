@@ -9,14 +9,28 @@
 import UIKit
 import CoreData
 
+let appdelegate = UIApplication.shared.delegate as! AppDelegate
+let redColor  = UIColor(red: 255/255, green: 50/255, blue: 75/255, alpha: 1)
+let greenColor  = UIColor(red: 30/255, green: 244/255, blue: 125/255, alpha: 1)
+var user: NSDictionary? 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var backgroundImageView = UIImageView()
-
+    var errorViewShowing = false
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        user = UserDefaults.standard.value(forKey: "user") as! NSDictionary
+        if user != nil{
+            if let id = user?["id"] {
+                login()
+            }
+        }
+        
         backgroundImageView.image = UIImage(named: "mainbg.jpg")
         backgroundImageView.frame = CGRect(x: 0, y: 0, width: window!.bounds.height * 1.668, height: window!.bounds.height)
         self.window?.addSubview(backgroundImageView)
@@ -39,6 +53,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }) { (completed) in
             self.moveLeft()
         }
+    }
+    
+    //error view 
+    
+    func infoView(message: String, color: UIColor){
+        if errorViewShowing == false {
+            errorViewShowing = true
+            let height = self.window!.bounds.height / 14.2
+            let errorView = UIView(frame: CGRect(x: 0, y: -height , width: self.window!.bounds.width, height: height))
+            errorView.backgroundColor = color
+            self.window?.addSubview(errorView)
+            
+            let errorLabel = UILabel()
+            errorLabel.numberOfLines = 0
+            errorLabel.text = message
+            errorLabel.textColor = UIColor.white
+            
+            errorView.addSubview(errorLabel)
+            errorLabel.frame.size.width = errorView.bounds.width
+            errorLabel.frame.size.height = errorView.bounds.height + UIApplication.shared.statusBarFrame.height/2
+            errorLabel.font = UIFont(name: "HelveticaNeue", size: 11)
+            errorLabel.textAlignment = .center
+            
+            
+            UIView.animate(withDuration: 0.2, animations: {
+                errorView.frame.origin.y = 0
+            }, completion: { (done) in
+                
+                
+                UIView.animate(withDuration: 0.2, delay: 4, options: .curveEaseOut, animations: {
+                
+                    errorView.frame.origin.y = -height
+                }, completion: { (done2) in
+                    errorView.removeFromSuperview()
+                    errorLabel.removeFromSuperview()
+                    self.errorViewShowing = false
+                })
+            })
+        }
+        
+    }
+    
+    func login()
+    {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let tabBar = storyboard.instantiateViewController(withIdentifier: "tabBar")
+        window?.rootViewController = tabBar 
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

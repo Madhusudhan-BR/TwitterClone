@@ -54,6 +54,20 @@ class RegisterController: UIViewController {
                         let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
                         guard let jsonData = json else { return }
                         print(jsonData)
+                        
+                        let id = jsonData["id"] as? String
+                        if id != nil {
+                            guard let message = jsonData["message"] as? String else { return }
+                            appdelegate.infoView(message: message, color: greenColor)
+                            UserDefaults.standard.set(jsonData, forKey: "user")
+                            user = UserDefaults.standard.value(forKey: "user") as! NSDictionary
+                            appdelegate.login()
+                        } else {
+                            
+                            guard let message = jsonData["message"] as? String else { return }
+                            appdelegate.infoView(message: message, color: redColor)
+                        }
+                        
                     } catch let error {
                         print("JSON error",error)
                     }

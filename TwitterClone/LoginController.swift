@@ -51,6 +51,21 @@ class LoginController: UIViewController {
                         
                         print(jsonData)
                         
+                        let id = jsonData["id"] as? String
+                        if id != nil {
+                            guard let message = jsonData["message"] as? String else { return }
+                            appdelegate.infoView(message: message, color: greenColor)
+                            UserDefaults.standard.set(jsonData, forKey: "user")
+                            user = UserDefaults.standard.value(forKey: "user") as! NSDictionary
+                            appdelegate.login() 
+                        } else {
+                            
+                            guard let message = jsonData["message"] as? String else { return }
+                            appdelegate.infoView(message: message, color: redColor)
+                            
+                        }
+                        
+                        
                     } catch let jsonError {
                         print(jsonError.localizedDescription)
                         return
