@@ -22,6 +22,7 @@
 		9B39E5981F31EA9800CF9907 /* users.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B39E58B1F31EA9800CF9907 /* users.png */; };
 		9B39E5991F31EA9800CF9907 /* users@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B39E58C1F31EA9800CF9907 /* users@2x.png */; };
 		9B39E59A1F31EA9800CF9907 /* users@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B39E58D1F31EA9800CF9907 /* users@3x.png */; };
+		9B39E59D1F31F5B200CF9907 /* NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B39E59C1F31F5B200CF9907 /* NavController.swift */; };
 		9B817B5D1F26F3A500384C47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B817B5C1F26F3A500384C47 /* AppDelegate.swift */; };
 		9B817B621F26F3A500384C47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B817B601F26F3A500384C47 /* Main.storyboard */; };
 		9B817B651F26F3A500384C47 /* TwitterClone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9B817B631F26F3A500384C47 /* TwitterClone.xcdatamodeld */; };
@@ -65,6 +66,7 @@
 		9B39E58B1F31EA9800CF9907 /* users.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = users.png; sourceTree = "<group>"; };
 		9B39E58C1F31EA9800CF9907 /* users@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "users@2x.png"; sourceTree = "<group>"; };
 		9B39E58D1F31EA9800CF9907 /* users@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "users@3x.png"; sourceTree = "<group>"; };
+		9B39E59C1F31F5B200CF9907 /* NavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavController.swift; sourceTree = "<group>"; };
 		9B817B591F26F3A500384C47 /* TwitterClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B817B5C1F26F3A500384C47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B817B611F26F3A500384C47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -109,9 +111,9 @@
 		9B39E59B1F31EAAC00CF9907 /* icons */ = {
 			isa = PBXGroup;
 			children = (
-				9B39E5811F31EA9800CF9907 /* ava.jpg */,
 				9B39E5821F31EA9800CF9907 /* home.png */,
 				9B39E5831F31EA9800CF9907 /* home@2x.png */,
+				9B39E5811F31EA9800CF9907 /* ava.jpg */,
 				9B39E5841F31EA9800CF9907 /* home@3x.png */,
 				9B39E5851F31EA9800CF9907 /* logout.png */,
 				9B39E5861F31EA9800CF9907 /* logout@2x.png */,
@@ -151,11 +153,12 @@
 			isa = PBXGroup;
 			children = (
 				9B817B5C1F26F3A500384C47 /* AppDelegate.swift */,
-				9B39E59B1F31EAAC00CF9907 /* icons */,
 				9B817B661F26F3A500384C47 /* Assets.xcassets */,
+				9B39E59B1F31EAAC00CF9907 /* icons */,
 				9B817B681F26F3A500384C47 /* LaunchScreen.storyboard */,
 				9B817B6B1F26F3A500384C47 /* Info.plist */,
 				9B817B601F26F3A500384C47 /* Main.storyboard */,
+				9B39E59C1F31F5B200CF9907 /* NavController.swift */,
 				9B1EFDCB1F28565A0023AE58 /* RegisterController.swift */,
 				9B39E57F1F319F9900CF9907 /* LoginController.swift */,
 				9B817B631F26F3A500384C47 /* TwitterClone.xcdatamodeld */,
@@ -332,6 +335,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B39E59D1F31F5B200CF9907 /* NavController.swift in Sources */,
 				9B817B651F26F3A500384C47 /* TwitterClone.xcdatamodeld in Sources */,
 				9B39E5801F319F9900CF9907 /* LoginController.swift in Sources */,
 				9B817B5D1F26F3A500384C47 /* AppDelegate.swift in Sources */,

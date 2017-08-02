@@ -14,7 +14,10 @@ class LoginController: UIViewController {
     
     @IBOutlet weak var passwordField: UITextField!
     
-    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

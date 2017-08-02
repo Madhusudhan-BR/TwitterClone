@@ -244,7 +244,7 @@
         <!--Home-->
         <scene sceneID="lTS-4h-bfi">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2MV-0M-aRa" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2MV-0M-aRa" customClass="NavController" customModule="TwitterClone" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="home.png" id="rHe-1C-A0h"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0du-2h-BhC">
