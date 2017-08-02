@@ -148,7 +148,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="eBO-qM-ak5">
             <objects>
-                <tabBarController storyboardIdentifier="tabBar" id="dp9-sA-j1v" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBar" id="dp9-sA-j1v" customClass="TabBarController" customModule="TwitterClone" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="gv0-tj-0WZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
