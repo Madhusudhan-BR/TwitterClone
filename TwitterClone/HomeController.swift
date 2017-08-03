@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeController: UIViewController {
+class HomeController: UIViewController,UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @IBOutlet weak var usernameLabel: UILabel!
     
@@ -31,5 +31,16 @@ class HomeController: UIViewController {
         
     }
     @IBAction func handleEditProfilePicture(_ sender: Any) {
+        
+        let picker = UIImagePickerController()
+        picker.delegate  = self
+        picker.allowsEditing = true
+        present(picker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        guard let image = info[UIImagePickerControllerEditedImage] as? UIImage else { return }
+        profilePictureImageView.image = image
+        dismiss(animated: true, completion: nil)
     }
 }
