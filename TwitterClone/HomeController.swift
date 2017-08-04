@@ -37,7 +37,7 @@ class HomeController: UIViewController,UINavigationControllerDelegate, UIImagePi
         
         // get user profile pic  
         
-        print(ava)
+        
         if ava != "" {
             guard let imageUrl = URL(string: ava!) else { return }
             guard let imageData = NSData(contentsOf: imageUrl) else { return }
@@ -46,6 +46,12 @@ class HomeController: UIViewController,UINavigationControllerDelegate, UIImagePi
                 self.profilePictureImageView.image = image
             }
         }
+        
+        
+        profilePictureImageView.layer.cornerRadius = profilePictureImageView.bounds.width / 20;
+        profilePictureImageView.clipsToBounds = true
+        self.navigationItem.title = username
+        
     }
     @IBAction func handleEditProfilePicture(_ sender: Any) {
         
