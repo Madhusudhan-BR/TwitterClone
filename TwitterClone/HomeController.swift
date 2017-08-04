@@ -16,6 +16,13 @@ class HomeController: UIViewController,UINavigationControllerDelegate, UIImagePi
     @IBOutlet weak var fullnameLabel: UILabel!
     @IBOutlet weak var profilePictureImageView: UIImageView!
     
+    @IBAction func handleLogout(_ sender: Any) {
+        UserDefaults.standard.removeObject(forKey: "user")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let loginController = storyboard.instantiateViewController(withIdentifier: "login") as! LoginController
+        present(loginController, animated: true , completion: nil)
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +36,7 @@ class HomeController: UIViewController,UINavigationControllerDelegate, UIImagePi
         fullnameLabel.text = fullname
         
         // get user profile pic  
+        
         print(ava)
         if ava != "" {
             guard let imageUrl = URL(string: ava!) else { return }

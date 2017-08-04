@@ -195,7 +195,13 @@
                             <constraint firstItem="IdL-MV-30y" firstAttribute="trailing" secondItem="qfG-di-4u7" secondAttribute="trailingMargin" id="wxt-Gu-tvl"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="WUJ-GM-e1n"/>
+                    <navigationItem key="navigationItem" id="WUJ-GM-e1n">
+                        <barButtonItem key="leftBarButtonItem" image="logout.png" id="FIu-vj-04d">
+                            <connections>
+                                <action selector="handleLogout:" destination="c9U-vY-iZc" id="7Gr-Gz-C9B"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="emailLabel" destination="I8e-se-lR5" id="EdE-mL-aJn"/>
                         <outlet property="fullnameLabel" destination="aaT-30-wCy" id="rUC-ze-Ro2"/>
@@ -228,7 +234,7 @@
         <!--Login Controller-->
         <scene sceneID="AnA-e8-jU7">
             <objects>
-                <viewController id="6JO-Li-YFO" customClass="LoginController" customModule="TwitterClone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" id="6JO-Li-YFO" customClass="LoginController" customModule="TwitterClone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6bk-1J-ewN"/>
                         <viewControllerLayoutGuide type="bottom" id="Q99-9H-OtK"/>
@@ -363,6 +369,7 @@
     <resources>
         <image name="ava.jpg" width="1290" height="1290"/>
         <image name="home.png" width="25" height="25"/>
+        <image name="logout.png" width="25" height="25"/>
         <image name="post.png" width="25" height="25"/>
     </resources>
 </document>
