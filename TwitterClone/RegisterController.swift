@@ -44,7 +44,7 @@ class RegisterController: UIViewController {
         let url = URL(string: "http://localhost/twitterclone/register.php")!
         let request = NSMutableURLRequest(url: url)
         request.httpMethod = "POST"
-            let body = "username=\(usernameField.text!.lowercased())&password=\(passwordField.text!)&email=\(emailField.text!.lowercased())&fullname=\(firstnameField.text!)%20\(lastnameField.text!)"
+        let body = "username=\(usernameField.text!.lowercased())&password=\(passwordField.text!)&email=\(emailField.text!.lowercased())&fullname=\(firstnameField.text!)%20\(lastnameField.text!)"
         request.httpBody = body.data(using: String.Encoding.utf8)
             URLSession.shared.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) in
                 if let error = error {
