@@ -16,7 +16,7 @@ class HomeController: UIViewController,UINavigationControllerDelegate, UIImagePi
     @IBOutlet weak var fullnameLabel: UILabel!
     @IBOutlet weak var profilePictureImageView: UIImageView!
     
-   
+   var tweets = [AnyObject]()
     
     @IBAction func handleLogout(_ sender: Any) {
         UserDefaults.standard.removeObject(forKey: "user")
@@ -58,6 +58,11 @@ class HomeController: UIViewController,UINavigationControllerDelegate, UIImagePi
         self.navigationItem.title = username
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadPosts()
+    }
+    
     @IBAction func handleEditProfilePicture(_ sender: Any) {
         
         let picker = UIImagePickerController()
@@ -151,6 +156,45 @@ class HomeController: UIViewController,UINavigationControllerDelegate, UIImagePi
         
     }
     
+    func loadPosts(){
+        
+        let id = user!["id"] as! String
+        let url = URL(string: "http://localhost/TwitterClone/post.php")
+        let request = NSMutableURLRequest(url: url!)
+        request.httpMethod = "POST"
+        request.httpBody = "id=\(id)&text=&uuid=".data(using: .utf8)
+        
+        URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+            
+            DispatchQueue.main.async {
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }
+                
+                guard let data = data else { return }
+                
+                do {
+                    guard let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary else {
+                        return
+                    }
+                    
+                    guard let posts = json["posts"] as? [AnyObject] else { return }
+                    self.tweets = posts
+                    self.tableView.reloadData()
+                    
+                } catch let jsonError {
+                    print(error)
+                    return
+                }
+            }
+            
+        }.resume()
+        
+        
+        
+        
+    }
     
     //MARK: table view functions 
     
@@ -160,16 +204,22 @@ class HomeController: UIViewController,UINavigationControllerDelegate, UIImagePi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PostCell
-        cell.dateLabel.text = "1"
-        cell.pictureView.image = UIImage(named: "ava.jpg")
-        cell.usernameLabel.text = "meee"
-        cell.tweetText.text = "yoy yoyoy this is the one i was talking about "
+        let tweet = tweets[indexPath.row]
+        
+        guard let date = tweet["date"] as? String else { return UITableViewCell() }
+        guard let username = tweet["username"] as? String else { return UITableViewCell() }
+        guard let text = tweet["text"] as? String else { return  UITableViewCell() }
+        
+        cell.dateLabel.text = date
+        //cell.pictureView.image = UIImage(named: "ava.jpg")
+        cell.usernameLabel.text = username
+        cell.tweetText.text = text
         return cell 
         
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return tweets.count
     }
     
 }
