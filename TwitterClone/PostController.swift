@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PostController: UIViewController, UITextViewDelegate {
+class PostController: UIViewController, UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @IBOutlet weak var postTextView: UITextView!
     @IBOutlet weak var countLabel: UILabel!
@@ -61,8 +61,19 @@ class PostController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func handleSelectPicture(_ sender: Any) {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        present(picker, animated: true, completion: nil)
     }
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        guard let image = info[UIImagePickerControllerEditedImage] as? UIImage else {
+            return
+        }
+        self.selectedPictureImageView.image = image
+        dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func handlePost(_ sender: Any) {
         if !postTextView.text.isEmpty && postTextView.text.characters.count <= 140 {

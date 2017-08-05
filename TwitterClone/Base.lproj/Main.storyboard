@@ -373,6 +373,7 @@
                                 <rect key="frame" x="135" y="200" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="BYQ-AU-gVe"/>
+                                    <constraint firstAttribute="height" constant="40" id="SCD-5C-DJ7"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tcq-Pj-B1P">
