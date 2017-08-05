@@ -50,8 +50,14 @@ class PostController: UIViewController, UITextViewDelegate {
         } else {
             postButton.isEnabled = true
             postButton.alpha = 1
-            countLabel.textColor = UIColor.lightGray 
+            countLabel.textColor = UIColor.lightGray
         }
+    }
+    
+    
+    //touching screen 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(false)
     }
     
     @IBAction func handleSelectPicture(_ sender: Any) {

@@ -28,7 +28,9 @@ class RegisterController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad() 
     }
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(false)
+    }
     @IBAction func handleRegister(_ sender: Any) {
         
         if usernameField.text!.isEmpty || passwordField.text!.isEmpty || emailField.text!.isEmpty || firstnameField.text!.isEmpty || lastnameField.text!.isEmpty {
