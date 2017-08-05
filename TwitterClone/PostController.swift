@@ -18,7 +18,8 @@ class PostController: UIViewController, UITextViewDelegate, UINavigationControll
     @IBOutlet weak var postButton: UIButton!
     
     
-    
+    var uuid = String()
+    var imageSelected = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +74,41 @@ class PostController: UIViewController, UITextViewDelegate, UINavigationControll
         }
         self.selectedPictureImageView.image = image
         dismiss(animated: true, completion: nil)
+        imageSelected = true
+    }
+    
+    func createBodyWithParams(parameters: [String: String]?, filePathKey: String?, imageDataKey: NSData, boundary: String) -> NSData {
+        let body = NSMutableData();
+        
+        if parameters != nil {
+            for (key, value) in parameters! {
+                body.appendString(string: "--\(boundary)\r\n")
+                body.appendString(string: "Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
+                body.appendString(string: "\(value)\r\n")
+            }
+        }
+        
+        var filename = ""
+        
+        if imageSelected {
+            filename = "post-\(uuid).jpg"
+        }
+        
+        let mimetype = "image/jpg"
+        
+        body.appendString(string: "--\(boundary)\r\n")
+        body.appendString(string: "Content-Disposition: form-data; name=\"\(filePathKey!)\"; filename=\"\(filename)\"\r\n")
+        body.appendString(string: "Content-Type: \(mimetype)\r\n\r\n")
+        body.append(imageDataKey as Data)
+        body.appendString(string: "\r\n")
+        
+        body.appendString(string: "--\(boundary)--\r\n")
+        
+        return body
+    }
+    
+    func uploadPost(){
+        
     }
     
     @IBAction func handlePost(_ sender: Any) {
