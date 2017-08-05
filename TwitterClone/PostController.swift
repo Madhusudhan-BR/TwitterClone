@@ -150,6 +150,12 @@ class PostController: UIViewController, UITextViewDelegate, UINavigationControll
                     
                     DispatchQueue.main.async {
                          print(json)
+                        self.postTextView.text = ""
+                        self.selectedPictureImageView.image = UIImage()
+                        self.postButton.isEnabled = false
+                        self.postButton.alpha = 0.4
+                        self.countLabel.text = "140"
+                        self.tabBarController?.selectedIndex = 0
                     }
                     
                 } catch let jsonError {
