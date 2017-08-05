@@ -8,10 +8,11 @@
 
 import UIKit
 
-class HomeController: UIViewController,UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class HomeController: UIViewController,UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var usernameLabel: UILabel!
     
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var fullnameLabel: UILabel!
     @IBOutlet weak var profilePictureImageView: UIImageView!
@@ -26,7 +27,10 @@ class HomeController: UIViewController,UINavigationControllerDelegate, UIImagePi
 
     override func viewDidLoad() {
         super.viewDidLoad()
-              let username = (user!["username"] as? String)?.uppercased()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        let username = (user!["username"] as? String)?.uppercased()
         let fullname = (user!["fullname"] as? String)
         let email = (user!["email"] as? String)
         let ava = (user!["ava"] as? String)
@@ -145,6 +149,22 @@ class HomeController: UIViewController,UINavigationControllerDelegate, UIImagePi
         }.resume()
         
     }
+    
+    
+    //MARK: table view functions 
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5 
+    }
+    
 }
 
 extension NSMutableData {
