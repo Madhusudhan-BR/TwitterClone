@@ -109,12 +109,68 @@ class PostController: UIViewController, UITextViewDelegate, UINavigationControll
     
     func uploadPost(){
         
+        let id = user!["id"] as! String
+        uuid = NSUUID().uuidString
+        let text = postTextView.text as String
+        
+        let url = URL(string: "http://localhost/TwitterClone/post.php")
+        let request = NSMutableURLRequest(url: url!)
+        request.httpMethod = "POST"
+        
+        let param = ["id" : id , "uuid": uuid , "text": text]
+        
+        let boundary = "boundary-\(NSUUID().uuidString)"
+        
+        var imageData = NSData()
+        
+        if selectedPictureImageView.image != nil {
+            
+            imageData = UIImageJPEGRepresentation(selectedPictureImageView.image!, 0.5) as! NSData
+            
+        }
+        
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        
+        request.httpBody = createBodyWithParams(parameters: param, filePathKey: "file", imageDataKey: imageData, boundary: boundary) as Data
+        
+        
+        URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+      
+            DispatchQueue.main.async {
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }
+                
+                guard let data = data else { return }
+                
+                do {
+                    
+                    guard let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary else { return }
+                    
+                    DispatchQueue.main.async {
+                         print(json)
+                    }
+                    
+                } catch let jsonError {
+                    
+                    print(jsonError.localizedDescription)
+                    return
+                    
+                }
+                
+                
+                
+            }
+            
+        }.resume()
     }
     
     @IBAction func handlePost(_ sender: Any) {
         if !postTextView.text.isEmpty && postTextView.text.characters.count <= 140 {
             postButton.isEnabled = true
             postButton.alpha = 1
+            uploadPost()
         }
         
     }
