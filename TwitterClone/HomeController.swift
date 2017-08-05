@@ -11,11 +11,12 @@ import UIKit
 class HomeController: UIViewController,UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var usernameLabel: UILabel!
-    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var fullnameLabel: UILabel!
     @IBOutlet weak var profilePictureImageView: UIImageView!
+    
+   
     
     @IBAction func handleLogout(_ sender: Any) {
         UserDefaults.standard.removeObject(forKey: "user")
@@ -158,11 +159,17 @@ class HomeController: UIViewController,UINavigationControllerDelegate, UIImagePi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+       let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PostCell
+        cell.dateLabel.text = "1"
+        cell.pictureView.image = UIImage(named: "ava.jpg")
+        cell.usernameLabel.text = "meee"
+        cell.tweetText.text = "yoy yoyoy this is the one i was talking about "
+        return cell 
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5 
+        return 5
     }
     
 }
