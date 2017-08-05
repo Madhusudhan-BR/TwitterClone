@@ -33,6 +33,7 @@
 		9B817B751F26F3A600384C47 /* TwitterCloneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B817B741F26F3A600384C47 /* TwitterCloneTests.swift */; };
 		9B817B801F26F3A600384C47 /* TwitterCloneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B817B7F1F26F3A600384C47 /* TwitterCloneUITests.swift */; };
 		9B817B901F276C0600384C47 /* mainbg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9B817B8F1F276C0600384C47 /* mainbg.jpg */; };
+		9BB8766C1F3570600080CBCC /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB8766B1F3570600080CBCC /* PostController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		9B817B7F1F26F3A600384C47 /* TwitterCloneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterCloneUITests.swift; sourceTree = "<group>"; };
 		9B817B811F26F3A600384C47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B817B8F1F276C0600384C47 /* mainbg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mainbg.jpg; sourceTree = "<group>"; };
+		9BB8766B1F3570600080CBCC /* PostController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 				9B39E59B1F31EAAC00CF9907 /* icons */,
 				9B817B681F26F3A500384C47 /* LaunchScreen.storyboard */,
 				9B817B601F26F3A500384C47 /* Main.storyboard */,
+				9BB8766B1F3570600080CBCC /* PostController.swift */,
 				9B39E5A01F32F1E500CF9907 /* HomeController.swift */,
 				9B817B6B1F26F3A500384C47 /* Info.plist */,
 				9B39E59C1F31F5B200CF9907 /* NavController.swift */,
@@ -342,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B39E59D1F31F5B200CF9907 /* NavController.swift in Sources */,
+				9BB8766C1F3570600080CBCC /* PostController.swift in Sources */,
 				9B817B651F26F3A500384C47 /* TwitterClone.xcdatamodeld in Sources */,
 				9B39E5A11F32F1E500CF9907 /* HomeController.swift in Sources */,
 				9B39E5801F319F9900CF9907 /* LoginController.swift in Sources */,

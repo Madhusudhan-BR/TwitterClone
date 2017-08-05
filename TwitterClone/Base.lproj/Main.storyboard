@@ -332,7 +332,7 @@
         <!--POST-->
         <scene sceneID="123-Rt-G8e">
             <objects>
-                <viewController id="YRx-uZ-3Xs" sceneMemberID="viewController">
+                <viewController id="YRx-uZ-3Xs" customClass="PostController" customModule="TwitterClone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7nl-79-Dn0"/>
                         <viewControllerLayoutGuide type="bottom" id="n1z-ks-ikg"/>
@@ -365,6 +365,9 @@
                                 <state key="normal" title="Select Picture">
                                     <color key="titleColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="handleSelectPicture:" destination="YRx-uZ-3Xs" eventType="touchUpInside" id="Hxg-BX-VDc"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="isZ-98-EOa">
                                 <rect key="frame" x="135" y="200" width="40" height="40"/>
@@ -378,6 +381,9 @@
                                 <state key="normal" title="POST">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="handlePost:" destination="YRx-uZ-3Xs" eventType="touchUpInside" id="UeR-ex-RuW"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -400,6 +406,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="POST" id="odL-OX-Xs8"/>
+                    <connections>
+                        <outlet property="countLabel" destination="ywb-xx-3oG" id="5Ir-Gs-VOS"/>
+                        <outlet property="postButton" destination="Tcq-Pj-B1P" id="YqL-KL-M7S"/>
+                        <outlet property="postTextView" destination="48u-AW-SqK" id="CzR-AS-SLI"/>
+                        <outlet property="selectPictureButton" destination="6wz-bt-qx2" id="eiv-Bg-5uT"/>
+                        <outlet property="selectedPictureImageView" destination="isZ-98-EOa" id="ZiN-Va-3oR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qq6-fI-wyh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
