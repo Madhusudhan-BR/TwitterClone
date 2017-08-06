@@ -156,6 +156,7 @@ class PostController: UIViewController, UITextViewDelegate, UINavigationControll
                         self.postButton.alpha = 0.4
                         self.countLabel.text = "140"
                         self.tabBarController?.selectedIndex = 0
+                        self.imageSelected = false
                     }
                     
                 } catch let jsonError {

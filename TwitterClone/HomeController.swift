@@ -17,6 +17,7 @@ class HomeController: UIViewController,UINavigationControllerDelegate, UIImagePi
     @IBOutlet weak var profilePictureImageView: UIImageView!
     
    var tweets = [AnyObject]()
+    var images = [UIImage]()
     
     @IBAction func handleLogout(_ sender: Any) {
         UserDefaults.standard.removeObject(forKey: "user")
@@ -180,8 +181,28 @@ class HomeController: UIViewController,UINavigationControllerDelegate, UIImagePi
                     }
                     
                     guard let posts = json["posts"] as? [AnyObject] else { return }
+                    
                     self.tweets = posts
-                    self.tableView.reloadData()
+                    
+                    for i in 0..<self.tweets.count {
+                        let url = self.tweets[i]["path"] as? String
+                        
+                        if url != "" {
+                            let imageURL = URL(string: url!)
+                            let imageData = NSData(contentsOf: imageURL!)
+                            let image = UIImage(data: imageData! as Data)
+                            self.images.append(image!)
+                        } else {
+                            self.images.append(UIImage())
+                        }
+                    }
+                    
+                    print(self.tweets)
+                    
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                    
                     
                 } catch let jsonError {
                     print(error)
@@ -211,7 +232,37 @@ class HomeController: UIViewController,UINavigationControllerDelegate, UIImagePi
         guard let text = tweet["text"] as? String else { return  UITableViewCell() }
         
         cell.dateLabel.text = date
-        //cell.pictureView.image = UIImage(named: "ava.jpg")
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd-HH:mm:ss"
+        let newDate = dateFormatter.date(from: date)
+        
+        guard let fromDate = newDate else { return UITableViewCell()}
+        let now = NSDate()
+        let components : NSCalendar.Unit = [.second,.minute,.hour,.day, .weekOfMonth]
+        let difference = (Calendar.current as NSCalendar).components(components, from: fromDate, to: now as Date, options: [])
+        
+        // calculate date
+        if difference.second! <= 0 {
+            cell.dateLabel.text = "now"
+        }
+        if difference.second! > 0 && difference.minute! == 0 {
+            cell.dateLabel.text = "\(difference.second!)s." // 12s.
+        }
+        if difference.minute! > 0 && difference.hour! == 0 {
+            cell.dateLabel.text = "\(difference.minute!)m."
+        }
+        if difference.hour! > 0 && difference.day! == 0 {
+            cell.dateLabel.text = "\(difference.hour!)h."
+        }
+        if difference.day! > 0 && difference.weekOfMonth! == 0 {
+            cell.dateLabel.text = "\(difference.day!)d."
+        }
+        if difference.weekOfMonth! > 0 {
+            cell.dateLabel.text = "\(difference.weekOfMonth!)w."
+        }
+        
+        cell.pictureView.image = images[indexPath.row]
         cell.usernameLabel.text = username
         cell.tweetText.text = text
         return cell 
