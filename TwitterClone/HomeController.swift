@@ -179,7 +179,8 @@ class HomeController: UIViewController,UINavigationControllerDelegate, UIImagePi
                     guard let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary else {
                         return
                     }
-                    
+                    self.images.removeAll()
+                    self.tweets.removeAll()
                     guard let posts = json["posts"] as? [AnyObject] else { return }
                     
                     self.tweets = posts
@@ -265,6 +266,14 @@ class HomeController: UIViewController,UINavigationControllerDelegate, UIImagePi
         cell.pictureView.image = images[indexPath.row]
         cell.usernameLabel.text = username
         cell.tweetText.text = text
+        
+        if images[indexPath.row].size.width == 0 || images[indexPath.row].size.height == 0 {
+            DispatchQueue.main.async {
+                cell.tweetText.frame.origin.x = self.view.frame.width / 16
+                cell.tweetText.frame.size.width = self.view.frame.width -  self.view.frame.width / 8
+            }
+        }
+        
         return cell 
         
     }

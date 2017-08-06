@@ -151,7 +151,7 @@ class PostController: UIViewController, UITextViewDelegate, UINavigationControll
                     DispatchQueue.main.async {
                          print(json)
                         self.postTextView.text = ""
-                        self.selectedPictureImageView.image = UIImage()
+                        self.selectedPictureImageView.image = nil
                         self.postButton.isEnabled = false
                         self.postButton.alpha = 0.4
                         self.countLabel.text = "140"
