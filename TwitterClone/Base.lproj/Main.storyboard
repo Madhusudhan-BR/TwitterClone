@@ -490,22 +490,67 @@
             </objects>
             <point key="canvasLocation" x="1380" y="1393"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Users-->
         <scene sceneID="gN1-I8-6YQ">
             <objects>
-                <tableViewController id="Wzz-lT-pEf" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="qDG-yS-42Z">
+                <tableViewController id="Wzz-lT-pEf" customClass="UsersController" customModule="TwitterClone" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="qDG-yS-42Z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search User" id="zD3-pa-qZA">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="XFs-ag-jr1">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="UserCell" rowHeight="80" id="XFs-ag-jr1" customClass="UserCell" customModule="TwitterClone" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XFs-ag-jr1" id="gSl-fu-CCM">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ava.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ZEn-RX-AOY">
+                                            <rect key="frame" x="8" y="8" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="zbI-mn-TUy"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9K4-lf-759">
+                                            <rect key="frame" x="66" y="8" width="301" height="26"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fullname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uWf-zB-kLj">
+                                            <rect key="frame" x="66" y="42" width="301" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="5sd-tT-0lV"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="ZEn-RX-AOY" firstAttribute="leading" secondItem="gSl-fu-CCM" secondAttribute="leadingMargin" id="54C-Eo-dLq"/>
+                                        <constraint firstItem="9K4-lf-759" firstAttribute="leading" secondItem="ZEn-RX-AOY" secondAttribute="trailing" constant="8" symbolic="YES" id="5o0-4x-Wc7"/>
+                                        <constraint firstItem="uWf-zB-kLj" firstAttribute="top" secondItem="9K4-lf-759" secondAttribute="bottom" constant="8" symbolic="YES" id="8hF-jt-sy1"/>
+                                        <constraint firstItem="9K4-lf-759" firstAttribute="trailing" secondItem="gSl-fu-CCM" secondAttribute="trailingMargin" id="JR1-gl-JWB"/>
+                                        <constraint firstItem="9K4-lf-759" firstAttribute="leading" secondItem="uWf-zB-kLj" secondAttribute="leading" id="SXm-1r-UoF"/>
+                                        <constraint firstItem="ZEn-RX-AOY" firstAttribute="top" secondItem="gSl-fu-CCM" secondAttribute="topMargin" id="W1v-ev-ceG"/>
+                                        <constraint firstItem="ZEn-RX-AOY" firstAttribute="top" secondItem="9K4-lf-759" secondAttribute="top" id="e8a-Eo-HU7"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="ZEn-RX-AOY" secondAttribute="bottom" constant="14" id="tBF-bJ-98y"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="uWf-zB-kLj" secondAttribute="bottom" constant="9" id="vdx-li-fyp"/>
+                                        <constraint firstItem="9K4-lf-759" firstAttribute="trailing" secondItem="uWf-zB-kLj" secondAttribute="trailing" id="yWz-2N-a6p"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="fullnameLabel" destination="uWf-zB-kLj" id="06O-MV-3ID"/>
+                                    <outlet property="profileImageView" destination="ZEn-RX-AOY" id="FzH-sJ-nuE"/>
+                                    <outlet property="usernameLabel" destination="9K4-lf-759" id="iB7-Qk-61C"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -513,11 +558,15 @@
                             <outlet property="delegate" destination="Wzz-lT-pEf" id="mqE-gk-Tqk"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="8FE-b7-vo6"/>
+                    <navigationItem key="navigationItem" title="Users" id="8FE-b7-vo6"/>
+                    <connections>
+                        <outlet property="searchBar" destination="zD3-pa-qZA" id="DvV-g4-2tq"/>
+                        <outlet property="tableView" destination="qDG-yS-42Z" id="tXK-s0-cgr"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IHf-g1-h7J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1380" y="2048"/>
+            <point key="canvasLocation" x="1380" y="2047.826086956522"/>
         </scene>
         <!--Searxh-->
         <scene sceneID="zeX-Tl-a1q">

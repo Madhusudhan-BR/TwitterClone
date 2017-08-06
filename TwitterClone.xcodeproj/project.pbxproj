@@ -35,6 +35,8 @@
 		9B817B901F276C0600384C47 /* mainbg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9B817B8F1F276C0600384C47 /* mainbg.jpg */; };
 		9BB8766C1F3570600080CBCC /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB8766B1F3570600080CBCC /* PostController.swift */; };
 		9BB8766E1F35C86D0080CBCC /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB8766D1F35C86D0080CBCC /* PostCell.swift */; };
+		9BB876701F374D5A0080CBCC /* UsersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB8766F1F374D5A0080CBCC /* UsersController.swift */; };
+		9BB876721F374D920080CBCC /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB876711F374D920080CBCC /* UserCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +91,8 @@
 		9B817B8F1F276C0600384C47 /* mainbg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mainbg.jpg; sourceTree = "<group>"; };
 		9BB8766B1F3570600080CBCC /* PostController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
 		9BB8766D1F35C86D0080CBCC /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		9BB8766F1F374D5A0080CBCC /* UsersController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersController.swift; sourceTree = "<group>"; };
+		9BB876711F374D920080CBCC /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +169,8 @@
 				9B39E59B1F31EAAC00CF9907 /* icons */,
 				9B817B681F26F3A500384C47 /* LaunchScreen.storyboard */,
 				9B817B601F26F3A500384C47 /* Main.storyboard */,
+				9BB8766F1F374D5A0080CBCC /* UsersController.swift */,
+				9BB876711F374D920080CBCC /* UserCell.swift */,
 				9BB8766D1F35C86D0080CBCC /* PostCell.swift */,
 				9BB8766B1F3570600080CBCC /* PostController.swift */,
 				9B39E5A01F32F1E500CF9907 /* HomeController.swift */,
@@ -353,8 +359,10 @@
 				9B39E5A11F32F1E500CF9907 /* HomeController.swift in Sources */,
 				9B39E5801F319F9900CF9907 /* LoginController.swift in Sources */,
 				9BB8766E1F35C86D0080CBCC /* PostCell.swift in Sources */,
+				9BB876701F374D5A0080CBCC /* UsersController.swift in Sources */,
 				9B39E59F1F31F85A00CF9907 /* TabBarController.swift in Sources */,
 				9B817B5D1F26F3A500384C47 /* AppDelegate.swift in Sources */,
+				9BB876721F374D920080CBCC /* UserCell.swift in Sources */,
 				9B1EFDCC1F28565A0023AE58 /* RegisterController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
