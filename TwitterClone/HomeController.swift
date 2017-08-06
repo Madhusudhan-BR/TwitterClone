@@ -198,7 +198,7 @@ class HomeController: UIViewController,UINavigationControllerDelegate, UIImagePi
                         }
                     }
                     
-                    print(self.tweets)
+   
                     
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
@@ -291,8 +291,75 @@ class HomeController: UIViewController,UINavigationControllerDelegate, UIImagePi
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
-            
+            deletePost(indexPath: indexPath as NSIndexPath)
         }
+    }
+    
+    func deletePost(indexPath: NSIndexPath) {
+        guard let tweet = self.tweets[indexPath.row] as? NSDictionary else { return }
+         let image = self.images[indexPath.row]
+        
+        var path = tweet["path"] as? String
+        if path!.isEmpty {
+            path = ""
+        }
+        let url = URL(string: "http://localhost/TwitterClone/post.php")
+        let request = NSMutableURLRequest(url: url!)
+        
+        request.httpMethod = "POST"
+        let body = "uuid=\(tweet["uuid"]!)&path=\(path!))"
+        request.httpBody = body.data(using: .utf8)
+        
+        URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+            
+            if let error = error{
+                print(error)
+                return
+            }
+            
+            guard let data = data else {
+                return
+            }
+            
+            
+            var feedStr = String(data: data, encoding: .utf8)
+            
+            for i in feedStr!.characters {
+                print(i)
+            }
+            
+//            DispatchQueue.main.async {
+//                
+//                
+//                
+//                do{
+//                    guard let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary  else {
+//                        return
+//                    }
+//                    
+//                    DispatchQueue.main.async {
+//                        
+//                        let result = json["result"]
+//                        if(result != nil){
+//                            self.tweets.remove(at: indexPath.row)
+//                            self.images.remove(at: indexPath.row)
+//                            self.tableView.deleteRows(at: [indexPath as IndexPath], with: .automatic) // remove table cell
+//                            self.tableView.reloadData()
+//                        }
+//
+//                    }
+//                    print(json)
+//                    
+//
+//                } catch let jsonerror {
+//                    print(jsonerror)
+//                }
+//                
+//                
+//            }
+            
+        }.resume()
+        
     }
     
 }
