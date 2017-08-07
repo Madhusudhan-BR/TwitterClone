@@ -77,11 +77,11 @@ class HomeController: UIViewController,UINavigationControllerDelegate, UIImagePi
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let editController = storyboard.instantiateViewController(withIdentifier: "EditController") as! EditController
-            
+            self.navigationController?.pushViewController(editController, animated: true)
+           // self.present(editController, animated: true, completion: nil)
             let backbutton = UIBarButtonItem()
             backbutton.title = ""
             self.navigationItem.backBarButtonItem = backbutton
-            self.present(editController, animated: true, completion: nil)
             
         }
        
