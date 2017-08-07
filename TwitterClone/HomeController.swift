@@ -66,6 +66,25 @@ class HomeController: UIViewController,UINavigationControllerDelegate, UIImagePi
     
     @IBAction func handleEditProfilePicture(_ sender: Any) {
         
+        let sheet = UIAlertController(title: "Edit Profile", message: nil, preferredStyle: .actionSheet)
+        
+        let editPictureAction = UIAlertAction(title: "Edit picture", style: .default) { (_) in
+            self.selectAva()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let editAction = UIAlertAction(title: "Update Info", style: .default) { (_) in
+            print("updating")
+        }
+       
+        sheet.addAction(editAction)
+        sheet.addAction(editPictureAction)
+        sheet.addAction(cancelAction)
+        
+        present(sheet, animated: true , completion: nil)
+    }
+    
+    func selectAva() {
         let picker = UIImagePickerController()
         picker.delegate  = self
         picker.allowsEditing = true
