@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterClone/HomeController.swift"
-            timestampString = "523708928.18241"
+            timestampString = "523782810.621016"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "327"
-            endingLineNumber = "327"
+            startingLineNumber = "346"
+            endingLineNumber = "346"
             landmarkName = "deletePost(indexPath:)"
             landmarkType = "7">
          </BreakpointContent>
