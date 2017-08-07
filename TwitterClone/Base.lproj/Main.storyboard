@@ -283,10 +283,10 @@
             </objects>
             <point key="canvasLocation" x="1380" y="634.632683658171"/>
         </scene>
-        <!--View Controller-->
+        <!--Edit Controller-->
         <scene sceneID="Ti6-Kb-Mix">
             <objects>
-                <viewController id="lkb-uw-FCh" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditController" id="lkb-uw-FCh" customClass="EditController" customModule="TwitterClone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="036-ek-bOK"/>
                         <viewControllerLayoutGuide type="bottom" id="g8W-Nr-eoC"/>
@@ -331,6 +331,9 @@
                                 <state key="normal" title="Save">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="handleSave:" destination="lkb-uw-FCh" eventType="touchUpInside" id="tdK-cc-et0"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -356,6 +359,14 @@
                             <constraint firstItem="NeL-N8-VOx" firstAttribute="top" secondItem="FE2-Iy-o81" secondAttribute="bottom" constant="8" symbolic="YES" id="zsi-OS-ANy"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailLabel" destination="zGq-7p-PKt" id="wae-zI-K71"/>
+                        <outlet property="firstnameLabel" destination="sB9-Wv-ybD" id="Cap-oW-ORM"/>
+                        <outlet property="lastnameLabel" destination="f8n-hO-Y8a" id="IJp-EP-ssp"/>
+                        <outlet property="profileImageView" destination="NeL-N8-VOx" id="q2K-ij-Tty"/>
+                        <outlet property="saveButton" destination="Ptp-jd-dLo" id="1Eg-nP-pbS"/>
+                        <outlet property="usernameLabel" destination="FE2-Iy-o81" id="XL9-yV-eRA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cMN-OS-NeC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -74,7 +74,15 @@ class HomeController: UIViewController,UINavigationControllerDelegate, UIImagePi
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let editAction = UIAlertAction(title: "Update Info", style: .default) { (_) in
-            print("updating")
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let editController = storyboard.instantiateViewController(withIdentifier: "EditController") as! EditController
+            
+            let backbutton = UIBarButtonItem()
+            backbutton.title = ""
+            self.navigationItem.backBarButtonItem = backbutton
+            self.present(editController, animated: true, completion: nil)
+            
         }
        
         sheet.addAction(editAction)
