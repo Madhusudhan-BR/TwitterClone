@@ -37,6 +37,7 @@
 		9BB8766E1F35C86D0080CBCC /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB8766D1F35C86D0080CBCC /* PostCell.swift */; };
 		9BB876701F374D5A0080CBCC /* UsersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB8766F1F374D5A0080CBCC /* UsersController.swift */; };
 		9BB876721F374D920080CBCC /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB876711F374D920080CBCC /* UserCell.swift */; };
+		9BB876781F3824A60080CBCC /* GuestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB876771F3824A60080CBCC /* GuestController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		9BB8766D1F35C86D0080CBCC /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		9BB8766F1F374D5A0080CBCC /* UsersController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersController.swift; sourceTree = "<group>"; };
 		9BB876711F374D920080CBCC /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		9BB876771F3824A60080CBCC /* GuestController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 				9B39E59B1F31EAAC00CF9907 /* icons */,
 				9B817B681F26F3A500384C47 /* LaunchScreen.storyboard */,
 				9B817B601F26F3A500384C47 /* Main.storyboard */,
+				9BB876771F3824A60080CBCC /* GuestController.swift */,
 				9BB8766F1F374D5A0080CBCC /* UsersController.swift */,
 				9BB876711F374D920080CBCC /* UserCell.swift */,
 				9BB8766D1F35C86D0080CBCC /* PostCell.swift */,
@@ -353,6 +356,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BB876781F3824A60080CBCC /* GuestController.swift in Sources */,
 				9B39E59D1F31F5B200CF9907 /* NavController.swift in Sources */,
 				9BB8766C1F3570600080CBCC /* PostController.swift in Sources */,
 				9B817B651F26F3A500384C47 /* TwitterClone.xcdatamodeld in Sources */,
