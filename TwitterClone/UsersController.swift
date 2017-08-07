@@ -13,7 +13,7 @@ class UsersController: UITableViewController,UISearchBarDelegate{
    
     @IBOutlet weak var searchBar: UISearchBar!
     var users = [AnyObject]()
-    
+    var images = [UIImage]()
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
@@ -59,12 +59,27 @@ class UsersController: UITableViewController,UISearchBarDelegate{
                     }
                     
                     self.users.removeAll()
+                    self.images.removeAll()
                     self.tableView.reloadData()
                     
                     print(json)
                     guard let users = json["users"] as? [AnyObject] else { return }
                     
                     self.users = users
+                    
+                    for i in 0..<self.users.count {
+                        
+                        let ava = self.users[i]["ava"] as? String
+                        
+                        if ava != "" {
+                            let url = URL(string: ava!)
+                            let imageData = NSData(contentsOf: url!)
+                            let image = UIImage(data: imageData as! Data)
+                            self.images.append(image!)
+                        } else {
+                            self.images.append(UIImage())
+                        }
+                    }
                   
                     self.tableView.reloadData()
                     
@@ -90,7 +105,12 @@ class UsersController: UITableViewController,UISearchBarDelegate{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UserCell
+        let user = users[indexPath.row]
         
+        
+        cell.fullnameLabel.text = user["fullname"] as? String
+        cell.usernameLabel.text = user["username"] as? String
+        cell.profileImageView.image = self.images[indexPath.row]
         return cell
     }
     
