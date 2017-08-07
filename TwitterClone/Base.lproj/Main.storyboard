@@ -283,10 +283,10 @@
             </objects>
             <point key="canvasLocation" x="1380" y="634.632683658171"/>
         </scene>
-        <!--Home Controller-->
+        <!--Guest Controller-->
         <scene sceneID="ikN-qk-cCd">
             <objects>
-                <viewController id="7wd-E2-Opy" customClass="HomeController" customModule="TwitterClone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7wd-E2-Opy" customClass="GuestController" customModule="TwitterClone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lTw-Pc-rde"/>
                         <viewControllerLayoutGuide type="bottom" id="uND-PI-BVi"/>
@@ -408,6 +408,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="L3a-4U-tS3"/>
+                    <connections>
+                        <outlet property="emailLabel" destination="qzR-8T-mAn" id="mqG-hW-NZS"/>
+                        <outlet property="fullnameLabel" destination="9Wt-TA-atG" id="DhJ-AJ-FsI"/>
+                        <outlet property="profilePictureImageView" destination="g6L-in-8LV" id="uHT-Jd-5sv"/>
+                        <outlet property="tableView" destination="FQj-6c-cSS" id="t17-ey-x02"/>
+                        <outlet property="usernameLabel" destination="C4x-3S-2nh" id="L9v-cX-WMV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iBP-Qb-t9b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -680,7 +687,7 @@
                                     <outlet property="fullnameLabel" destination="uWf-zB-kLj" id="06O-MV-3ID"/>
                                     <outlet property="profileImageView" destination="ZEn-RX-AOY" id="FzH-sJ-nuE"/>
                                     <outlet property="usernameLabel" destination="9K4-lf-759" id="iB7-Qk-61C"/>
-                                    <segue destination="7wd-E2-Opy" kind="show" id="e4S-dv-e6N"/>
+                                    <segue destination="7wd-E2-Opy" kind="show" identifier="guest" id="e4S-dv-e6N"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

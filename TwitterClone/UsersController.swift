@@ -103,6 +103,26 @@ class UsersController: UITableViewController,UISearchBarDelegate{
         doSearch(word: "")
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let cell = sender as? UITableViewCell {
+            if let index = tableView.indexPath(for: cell)?.row {
+                if segue.identifier == "guest" {
+                   if let guestVc = segue.destination as? GuestController {
+                        guestVc.guest = self.users[index] as! NSDictionary
+                    
+                        let backitem = UIBarButtonItem()
+                        backitem.title = ""
+                        navigationItem.backBarButtonItem = backitem 
+                    }
+                }
+            }
+            
+        }
+        
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UserCell
         let user = users[indexPath.row]

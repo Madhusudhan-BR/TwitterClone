@@ -19,6 +19,11 @@ class GuestController: UIViewController, UITableViewDelegate, UITableViewDataSou
     var tweets = [AnyObject]()
     var images = [UIImage]()
     
+    var guest = NSDictionary() {
+        didSet{
+            loadPosts()
+        }
+    }
    
     
     override func viewDidLoad() {
@@ -26,10 +31,10 @@ class GuestController: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         tableView.delegate = self
         tableView.dataSource = self
-        let username = (user!["username"] as? String)?.uppercased()
-        let fullname = (user!["fullname"] as? String)
-        let email = (user!["email"] as? String)
-        let ava = (user!["ava"] as? String)
+        let username = (guest["username"] as? String)?.uppercased()
+        let fullname = (guest["fullname"] as? String)
+        let email = (guest["email"] as? String)
+        let ava = (guest["ava"] as? String)
         
         usernameLabel.text = username
         emailLabel.text = email
@@ -55,7 +60,7 @@ class GuestController: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        loadPosts()
+        
     }
     
   
@@ -63,8 +68,8 @@ class GuestController: UIViewController, UITableViewDelegate, UITableViewDataSou
     
         
     func loadPosts(){
-        
-        let id = user!["id"] as! String
+        print(guest)
+        guard let id = guest["id"] as? String else { return }
         let url = URL(string: "http://localhost/TwitterClone/post.php")
         let request = NSMutableURLRequest(url: url!)
         request.httpMethod = "POST"
