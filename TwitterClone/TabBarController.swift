@@ -12,6 +12,8 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        logoAnimation()
+        
         tabBar.tintColor = .white
         tabBar.barTintColor = UIColor(red: 45/255, green: 213/255, blue: 255/255, alpha: 1)
         tabBar.isTranslucent = false
@@ -23,6 +25,36 @@ class TabBarController: UITabBarController {
             if  let image = item.image {
                 item.image = image.imageColor(color: UIColor.lightGray).withRenderingMode(.alwaysOriginal)
             }
+        }
+    }
+    
+    func logoAnimation(){
+        let layer = UIView()
+        layer.frame = self.view.frame
+        layer.backgroundColor = blueColor
+        view.addSubview(layer)
+        
+        let icon = UIImageView()
+        icon.image = UIImage(named: "twitter.png")
+        icon.frame.size.width = 100
+        icon.frame.size.height = 100
+        icon.layer.cornerRadius = 50
+        icon.clipsToBounds = true
+        icon.center = view.center
+        view.addSubview(icon)
+        
+        UIView.animate(withDuration: 0.5, delay: 1, options: .curveLinear, animations: {
+            icon.transform = CGAffineTransform( scaleX: 0.9, y: 0.9)
+        }) { (_) in
+            UIView.animate(withDuration: 0.5, animations: {
+                icon.transform = CGAffineTransform( scaleX: 20 , y: 20)
+                
+                UIView.animate(withDuration: 0.1, delay: 0.3, options: .curveLinear, animations: {
+                    icon.alpha = 0
+                    layer.alpha = 0
+                }, completion: nil)
+                
+            })
         }
     }
 }

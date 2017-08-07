@@ -39,6 +39,7 @@
 		9BB876721F374D920080CBCC /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB876711F374D920080CBCC /* UserCell.swift */; };
 		9BB876781F3824A60080CBCC /* GuestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB876771F3824A60080CBCC /* GuestController.swift */; };
 		9BB8767A1F3861B10080CBCC /* EditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB876791F3861B10080CBCC /* EditController.swift */; };
+		9BB8767C1F3893EF0080CBCC /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BB8767B1F3893EF0080CBCC /* twitter.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		9BB876711F374D920080CBCC /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		9BB876771F3824A60080CBCC /* GuestController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestController.swift; sourceTree = "<group>"; };
 		9BB876791F3861B10080CBCC /* EditController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditController.swift; sourceTree = "<group>"; };
+		9BB8767B1F3893EF0080CBCC /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 				9B39E59B1F31EAAC00CF9907 /* icons */,
 				9B817B681F26F3A500384C47 /* LaunchScreen.storyboard */,
 				9B817B601F26F3A500384C47 /* Main.storyboard */,
+				9BB8767B1F3893EF0080CBCC /* twitter.png */,
 				9BB876791F3861B10080CBCC /* EditController.swift */,
 				9BB876771F3824A60080CBCC /* GuestController.swift */,
 				9BB8766F1F374D5A0080CBCC /* UsersController.swift */,
@@ -333,6 +336,7 @@
 				9B39E5991F31EA9800CF9907 /* users@2x.png in Resources */,
 				9B39E5901F31EA9800CF9907 /* home@2x.png in Resources */,
 				9B39E5941F31EA9800CF9907 /* logout@3x.png in Resources */,
+				9BB8767C1F3893EF0080CBCC /* twitter.png in Resources */,
 				9B817B901F276C0600384C47 /* mainbg.jpg in Resources */,
 				9B39E5921F31EA9800CF9907 /* logout.png in Resources */,
 			);
